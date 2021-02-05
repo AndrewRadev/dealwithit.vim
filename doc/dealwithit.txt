@@ -1,0 +1,57 @@
+*dealwithit.txt*	TODO
+
+==============================================================================
+CONTENTS                                        *dealwithit*   *dealwithit-contents*
+
+    Installation................................: |dealwithit-installation|
+    Usage.......................................: |dealwithit-usage|
+    Settings....................................: |dealwithit-settings|
+    Internals...................................: |dealwithit-internals|
+    Issues......................................: |dealwithit-issues|
+
+
+==============================================================================
+INSTALLATION                                            *dealwithit-installation*
+
+There are several ways to install the plugin. The recommended one is by using
+Tim Pope's pathogen (http://www.vim.org/scripts/script.php?script_id=2332). In
+that case, you can clone the plugin's git repository like so:
+>
+    git clone https://github.com/AndrewRadev/dealwithit.vim ~/.vim/bundle/dealwithit
+<
+If your vim configuration is under git version control, you could also set up
+the repository as a submodule, which would allow you to update more easily.
+The command is (provided you're in ~/.vim):
+>
+    git submodule add https://github.com/AndrewRadev/dealwithit.vim bundle/dealwithit
+<
+
+Another way is to simply copy all the essential directories inside the ~/.vim
+directory: TODO list of directories
+
+
+==============================================================================
+USAGE                                                          *dealwithit-usage*
+
+TODO
+
+
+==============================================================================
+SETTINGS                                                    *dealwithit-settings*
+
+TODO
+
+
+==============================================================================
+INTERNALS                                                  *dealwithit-internals*
+
+TODO
+
+==============================================================================
+ISSUES                                                        *dealwithit-issues*
+
+Any issues and suggestions are very welcome on the github bugtracker:
+https://github.com/AndrewRadev/dealwithit.vim/issues
+
+
+vim:tw=78:sw=4:ft=help:norl:
