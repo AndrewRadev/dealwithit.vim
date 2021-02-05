@@ -10,6 +10,10 @@ if !exists('g:dealwithit_guifont')
   let g:dealwithit_guifont = ''
 endif
 
+if !exists('g:dealwithit_sleep')
+  let g:dealwithit_sleep = 0
+endif
+
 command! Dealwithit call dealwithit#Run()
 
 let &cpo = s:keepcpo

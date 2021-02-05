@@ -1,7 +1,7 @@
 let s:frames_dir = simplify(expand('<sfile>:p:h') . '/../resources/frames')
 
 function! dealwithit#Run()
-  if !has('gui_running')
+  if !has('nvim') && !has('gui_running')
     call s:Warning("You need a GUI Vim: deal with it")
     return
   endif
@@ -20,6 +20,10 @@ function! dealwithit#Run()
   for i in range(0, 20)
     exe 'edit + '.s:frames_dir.'/frame_'.printf('%03d', i).'.xpm'
     redraw
+
+    if g:dealwithit_sleep > 0
+      exe 'sleep '.g:dealwithit_sleep.'m'
+    endif
   endfor
 
   if saved_font != ''

@@ -1,4 +1,4 @@
-*dealwithit.txt*	TODO
+*dealwithit.txt*	Show the "deal with it" dog animation
 
 ==============================================================================
 CONTENTS                                        *dealwithit*   *dealwithit-contents*
@@ -13,42 +13,70 @@ CONTENTS                                        *dealwithit*   *dealwithit-conte
 ==============================================================================
 INSTALLATION                                            *dealwithit-installation*
 
-There are several ways to install the plugin. The recommended one is by using
-Tim Pope's pathogen (http://www.vim.org/scripts/script.php?script_id=2332). In
-that case, you can clone the plugin's git repository like so:
+The easiest way to install the plugin is with a plugin manager:
+
+- vim-plug: https://github.com/junegunn/vim-plug
+- Vundle:   https://github.com/VundleVim/Vundle.vim
+
+If you use one, just follow the instructions in its documentation.
+
+You can install the plugin yourself using Vim's |packages| functionality by
+cloning the project (or adding it as a submodule) under
+`~/.vim/pack/<any-name>/start/`. For example:
 >
-    git clone https://github.com/AndrewRadev/dealwithit.vim ~/.vim/bundle/dealwithit
+    git clone https://github.com/AndrewRadev/dealwithit.vim ~/.vim/pack/_/start/dealwithit
 <
-If your vim configuration is under git version control, you could also set up
-the repository as a submodule, which would allow you to update more easily.
-The command is (provided you're in ~/.vim):
+This should automatically load the plugin for you on Vim start. Alternatively,
+you can add it to `~/.vim/pack/<any-name>/opt/` instead and load it in your
+.vimrc manually with:
 >
-    git submodule add https://github.com/AndrewRadev/dealwithit.vim bundle/dealwithit
+    packadd dealwithit
+<
+If you'd rather not use git, you can download the files from the "releases"
+tab and unzip them in the relevant directory:
+https://github.com/AndrewRadev/dealwithit.vim/releases.
+
+
+==============================================================================
+USAGE                                                         *dealwithit-usage*
+
+You need either:
+
+- A GUI Vim like `gvim` or `mvim` (I've only tested with gvim)
+- Neovim with `set termguicolors`
+
+After that, running the following command should open a new tab and show the
+animation:
+>
+    :Dealwithit
+<
+If you're using a Vim GUI, you can set `guifont` to something smaller to get
+it to fit the image better by preparing the variable `g:dealwithit_guifont`:
+>
+    let g:dealwithit_guifont = 'Fantasque Sans Mono 8'
+<
+When you `:quit` the image buffer, the font should be restored to its previous
+value. There's no default value, because the syntax of `guifont` depends on
+the OS, but also it depends on your current font, monitor size etc.
+
+If the animation is running too fast, you can set `g:dealwithit_sleep` to a
+number of milliseconds to sleep between frames:
+>
+    let g:dealwithit_guifont = 20
 <
 
-Another way is to simply copy all the essential directories inside the ~/.vim
-directory: TODO list of directories
+==============================================================================
+INTERNALS                                                 *dealwithit-internals*
 
+Vim has support for opening XPM files and the `resources/frames` folder has a
+bunch of them. These are images where the pixels are encoded using ASCII. The
+"syntax highlighting" parses the image and applies the right colors to the
+right symbols, effectively drawing an image. Tim Pope's afterimage plugin
+(https://github.com/tpope/vim-afterimage) works by converting other image
+types to XPMs and relying on the same thing.
 
 ==============================================================================
-USAGE                                                          *dealwithit-usage*
-
-TODO
-
-
-==============================================================================
-SETTINGS                                                    *dealwithit-settings*
-
-TODO
-
-
-==============================================================================
-INTERNALS                                                  *dealwithit-internals*
-
-TODO
-
-==============================================================================
-ISSUES                                                        *dealwithit-issues*
+ISSUES                                                       *dealwithit-issues*
 
 Any issues and suggestions are very welcome on the github bugtracker:
 https://github.com/AndrewRadev/dealwithit.vim/issues
